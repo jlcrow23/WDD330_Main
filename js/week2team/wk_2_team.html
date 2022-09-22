@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Week 2 Team Activity</title>
+</head>    
+   
+
+  <style>
+  </style>
+
+
+<body>
+    <h2>Problem 1</h2>
+    <input id="req1Input" type="text" />
+    <button id="req1Button" onclick="reqOne()">Submit</button>
+    <div id="req1Output"></div>
+    
+    <h2>Problem 2</h2>
+    <input id="req2Input" type="number" />
+    <button id="req2Button" onclick="reqTwo()">Sum</button>
+    <div id="req2Output"></div>
+
+    <h2>Problem 3</h2>
+    <input id="req3Number1" placeholder="enter a number" type="number" />
+    <input id="req3Number2" 
+        placeholder=""enter a number"
+        type="number" />
+    <button id="req3Button" onclick="add()">+</button>
+    <div id="req3Output"></div>
+
+    
+
+    <script>
+        function reqOne() {
+
+            const input = document.getElementById("req1Input").value;
+            const outputElement = document.getElementById("req1Output");
+            outputElement.innerHTML = "You entered: " + input;
+        }
+
+        function reqTwo() {
+
+            const input = document.getElementById("req2Input").value;
+            const outputElement = document.getElementById("req2Output");
+            const inputInt = parseInt(input);
+            if (inputInt !== NaN) {
+                outputElement.innerHTML = "Your total is: " + sum(inputInt);
+            }
+        }
+            function sum(number) {
+                let total = 0;
+                for (let i = 1; i <= number; i++)
+                    total += i;
+                
+                return total;
+                }
+            
+        
+
+        function add() {
+            const number1 = document.getElementById("req3Number1").value;
+            const number2 = document.getElementById("req3Number2").value;
+            const outputElement = document.getElementById("req3Output");
+        //  we need to check for valid input again...this time decimals would be ok...so lets use parseFloat instead of parseInt
+            const num1Float = parseFloat(number1);
+            const num2Float = parseFloat(number2);
+            if ((num1Float !== NaN) & (num2Float !== NaN)) {
+                const total = num1Float + num2Float;
+                outputElement.innerHTML = "Total: " + total;
+            }
+         }
+    </script>
+</body>
+
+
+</html>
