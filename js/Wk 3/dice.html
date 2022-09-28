@@ -1,14 +1,26 @@
-class Dice {
-    constructor(sides=6) {
-        this.sides = sides;
-    }
+<!doctype html>
+<html lang = 'en'>
 
-    roll() {
+<head>
+  <title>Week 3 dice and turtles</title>
+
+  </head>
+
+<body>
+    
+<script>
+
+class Dice {
+        constructor(sides=6) {
+        this.sides = sides;
+     }
+
+        roll() {
         return Math.floor(this.sides * Math.random() + 1)
     }
 
-    static description() {
-        return 'A way of choosing random numbers'
+        static description() {
+            return 'A way of choosing random numbers'
     }
 }
 
@@ -89,3 +101,5 @@ don.weapon = 'Bo Staff';
 
 mike.weapon = 'Nunchakus';
 
+    </script>
+    </body>
