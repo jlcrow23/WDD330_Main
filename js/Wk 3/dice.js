@@ -60,31 +60,24 @@ leo.sayHi();
 
 Turtle.prototype = {};
 
-Turtle.prototype.weapon = 'Hands';
+Turtle.prototype.weapon = {};
 
 Turtle.prototype.attack = function(){
     return `Feel the power of my ${this.weapon}!`;
     }
+Turtle.prototype.food = 'Pizza';
+
+Turtle.prototype.eat = function() {
+    return 'Mmm, this ${this.food} tastes great!';
+}
 
 
 const raph = new Turtle('Raphael');
 
-raph.name
-
-
-raph.sayHi()
-
-
-raph.weapon
-
-
-raph.attack()
-
-
 const don = new Turtle('Donatello');
 
+const mike = new Turtle('Michelangelo');
 
-don.weapon;
 
 leo.weapon = 'Katana Blades';
 
@@ -93,3 +86,6 @@ raph.weapon = 'Sai';
 
 
 don.weapon = 'Bo Staff';
+
+mike.weapon = 'Nunchakus';
+
