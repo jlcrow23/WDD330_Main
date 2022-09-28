@@ -30,29 +30,13 @@ Dice.description()
 const redDice = new Dice();
 
 
-redDice instanceof Dice
-
-
-redDice.sides
-
-
-redDice.roll()
-
-
 const blueDice = new Dice(20);
 
-
-blueDice instanceof Dice
-
-
-blueDice.sides
-
-
-blueDice.roll()
+// Now for turtles
 
 
 class Turtle {
-    constructor(name) {
+    constructor(name){
         this.name = name;
         this.weapon = 'hands';
     }
@@ -65,10 +49,6 @@ class Turtle {
 }
 
 const leo = new Turtle('Leonardo');
-
-leo.name;
-
-leo.sayHi();
 
 Turtle.prototype = {};
 
@@ -93,9 +73,7 @@ const mike = new Turtle('Michelangelo');
 
 leo.weapon = 'Katana Blades';
 
-
 raph.weapon = 'Sai';
-
 
 don.weapon = 'Bo Staff';
 
