@@ -34,17 +34,17 @@ const hikeList = [
     }
   ];
   
-  const imgBasePath = "//byui-cit.github.io/cit261/examples/";
+  const imgBasePath = "js\wK 5\Team Hike App\Hike pictures";
   //on load grab the array and insert it into the page
-//   window.addEventListener("load", () => {
-//     showHikeList();
-//   });
+  window.addEventListener("load", () => {
+    showHikeList();
+  });
   
-//   function showHikeList() {
-//     const hikeListElement = document.getElementById("hikes");
-//     hikeListElement.innerHTML = "";
-//     renderHikeList(hikeList, hikeListElement);
-//   }
+  function showHikeList() {
+    const hikeListElement = document.getElementById("hikes");
+    hikeListElement.innerHTML = "";
+    renderHikeList(hikeList, hikeListElement);
+  }
 
   export default class Hikes {
     constructor(elementId) {
@@ -61,23 +61,53 @@ const hikeList = [
       return this.getAllHikes().find(hike => hike.name === hikeName);
     }
     //show a list of hikes in the parentElement
-    showHikeList() {}
+    showHikeList() {
+      this.parentElement.innerHTML = "";
+      renderHikeList(this.parentElement, this.getAllHikes());
+      this.addHikeListener();
+
+      this.backButton.classList.add("hidden");
+    }
     // show one hike with full details in the parentElement
-    showOneHike(hikeName) {}
+    showOneHike(hikeName) {
+      const hike = this.getHikeByName(hikeName);
+      this.parentElement.innerHTML = "";
+      this.parentElement.appendChild(renderOneHikeFull(hike));
+
+      this.backButton.classList.remove("hidden");
+
+    }
     // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
     addHikeListener() {
       // We need to loop through the children of our list and attach a listener to each, remember though that children is a nodeList...not an array. So in order to use something like a forEach we need to convert it to an array.
+      const childrenArray = Array.from(this.parentElement.children);
+      childrenArray.forEach(child => {
+        child.addEventListener('touchend', e => {
+          this.showOneHike(e.currentTarget.dataset.name);
+        });
+      });
     }
     buildBackButton() {
       const backButton = document.createElement("button");
-  
+      backButton.innerHTML ="&lt;- All Hikes";
+      backButton.addEventListener("touchend", () => {
+        this.showHikeList();
+      });
+      backButton.classList.add("hidden");
+      this.parentElement.before(backButton);
       return backButton;
     }
   }
   // methods responsible for building HTML.  Why aren't these in the class?  They don't really need to be, and by moving them outside of the exported class, they cannot be called outside the module...they become private.
-  function renderHikeList(parent, hikes) {}
+  function renderHikeList(parent, hikes) {
+    hikes.forEach(hike => {
+      parent.appendChild(renderOneHikeLight(hike));
+    });
+  }
   function renderOneHikeLight(hike) {
     const item = document.createElement("li");
+    item.classList.add("light");
+    item.setAttribute("data-name", hike.name);
     item.innerHTML = ` <h2>${hike.name}</h2>
     <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
     <div>
@@ -94,6 +124,28 @@ const hikeList = [
   }
   function renderOneHikeFull(hike) {
     const item = document.createElement("li");
+    item.innerHTML = ` 
+    
+    <img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}">
+    <h2>${hike.name}</h2>
+    <div>
+        <h3>Distance</h3>
+        <p>${hike.distance}</p>
+    </div>
+    <div>
+        <h3>Difficulty</h3>
+        <p>${hike.difficulty}</p>
+    </div>
+    <div>
+        <h3>Description</h3>
+        <p>${hike.description}</p>
+    </div>
+    <div>
+        <h3>How to get there</h3>
+        <p>${hike.directions}</p>
+    </div>
+
+`;
   
     return item;
   }
