@@ -34,7 +34,7 @@ const hikeList = [
     }
   ];
   
-  const imgBasePath = "js\wK 5\Team Hike App\Hike pictures";
+  const imgBasePath = "https://github.com/jlcrow23/WDD330_Main/tree/main/js/wK%205/Team%20Hike%20App/Hike%20pictures";
   //on load grab the array and insert it into the page
   window.addEventListener("load", () => {
     showHikeList();
