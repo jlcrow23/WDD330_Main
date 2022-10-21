@@ -23,7 +23,7 @@ const hikeList = [
     },
     {
       name: "Denanda Falls",
-      imgSrc: "dunanda_falls.jpg",
+      imgSrc: "dunanda_falls.jpeg",
       imgAlt: "Image of Dunanda Falls",
       distance: "7 miles",
       difficulty: "Moderate",
@@ -44,9 +44,9 @@ const hikeList = [
     const hikeListElement = document.getElementById("hikes");
     hikeListElement.innerHTML = "";
     renderHikeList(hikeList, hikeListElement);
-  }
+  } 
 
-  export default class Hikes {
+  class Hikes {
     constructor(elementId) {
       this.parentElement = document.getElementById(elementId);
       // we need a back button to return back to the list. This will build it and hide it. When we need it we just need to remove the 'hidden' class
