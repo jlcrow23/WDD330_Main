@@ -1,8 +1,11 @@
-const quiz = [
-    { name: "Superman",realName: "Clark Kent" },
-    { name: "Wonderwoman",realName: "Dianna Prince" },
-    { name: "Batman",realName: "Bruce Wayne" },
-  ];
+const url = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/questions.json';
+
+fetch(url)
+    .then(res => res.json())
+    .then(quiz => {
+        view.start.addEventListener('click', () => game.start(quiz.questions), false);
+        view.response.addEventListener('click', (event) => game.check(event), false);
+    });
 
 // Utility functions
 function random(a,b=1) {
@@ -59,6 +62,9 @@ const view = {
         this.hide(this.question);
         this.hide(this.response);
         this.show(this.start);
+    },
+    buttons(array){
+        return array.map(value => `<button>${value}</button>`.join(""))
     }
 };
 
@@ -84,9 +90,13 @@ const game = {
         if(this.questions.length > 0) {
             shuffle(this.questions);
             this.question = this.questions.pop();
+            const options = [this.questions[0].realName, this.questions[1].realName, this.question.realName];
+            shuffle(options);
             const question = `What is ${this.question.name}'s real name?`;
             view.render(view.question,question);
+            view.render(view.response,view.buttons(options));
         }
+        
         else {
             this.gameOver();
         }
@@ -94,14 +104,16 @@ const game = {
     check(event){
         console.log('check(event) invoked');
         event.preventDefault();
-        const response = view.response.answer.value;
+        const response = event.target.textContent;
         const answer = this.question.realName;
         if(response === answer){
+            console.log('Correct');
             view.render(view.result,'Correct!',{'class':'correct'});
             this.score++;
             view.render(view.score,this.score);
         } 
         else {
+            console.log('Wrong');
             view.render(view.result,`Wrong! The correct answer was ${answer}`,{'class':'wrong'});
         }
         view.resetForm();
@@ -115,6 +127,7 @@ const game = {
     }
 }
 
-view.start.addEventListener('click', () => game.start(quiz), false);
-view.response.addEventListener('submit', (event) => game.check(event), false);
-view.hide(view.response);
+// view.start.addEventListener('click', () => game.start(quiz), false);
+// view.response.addEventListener('submit', (event) => game.check(event), false);
+// view.hide(view.response);
+// Code used from https://www.sitepoint.com/premium/books/javascript-novice-to-ninja-2nd-edition/read/11/k01nwv8p/
