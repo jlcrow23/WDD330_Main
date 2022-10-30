@@ -32,6 +32,7 @@ const view = {
     start: document.querySelector('#start'),
     response: document.querySelector('#response'),
     timer: document.querySelector('#timer strong'),
+    
     render(target,content,attributes) {
         for(const key in attributes) {
             target.setAttribute(key, attributes[key]);
