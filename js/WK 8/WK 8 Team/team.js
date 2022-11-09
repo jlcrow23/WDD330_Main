@@ -21,14 +21,14 @@ function getJSON(url) {
     // I decided to use a table to display my list of ships. The shipList Element is that table and it has 2 children: thead and tbody...we need to put our ships into tbody...so I reference the second child.
     const list = peopleListElement.children[1];
     list.innerHTML = "";
-    //loop through the ships
+    //loop through the people
     people.forEach(function (people) {
       //console.log(ship);
       //create elements for list...tr
       let listItem = document.createElement("tr");
       listItem.innerHTML = `
           <td><a href="${people.url}">${people.name}</a></td>
-          <td><a href="${people.url}">${people.homeworld}</a></td>
+          <td><a href="https://swapi.dev/api/planets/">${homeworld.name}</a></td>
           <td><a href="${people.url}">${people.films}</></td>
           `;
   
