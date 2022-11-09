@@ -1,15 +1,23 @@
 
-function playsound(e){
+function removeTransition(e){
+    if (e.propertyName !== "transform") return;
+    e.target.classList.remove("playing");
+}
 
-    // const audio = document.querySelector(
-    //     'audio[data-key="${e.keycode}"]'
-    // );
-    // const keyCountainer = document.querySelector(
-    //     'audio[data-key="${e.keyCode}"]');
+function playsound(e) {
+    const audio = document.querySelector('audio[data-key="${e.keycode}"]');
+    const key = document.querySelector('div[data-key="${e.keycode}"]');
+    if (!audio) return;
 
+    key.classList.add("playing");
+    audio.currentTime = 0;
     audio.play();
 }
 
+const keys = Array.from(document.querySelectorAll(".key"));
+keys.forEach((key) =>
+    key.addEventListener("transitionend", removeTransition)
+);
 window.addEventListener('keydown', playsound(Event));
 
 // var numberOfButtons = document.querySelectorAll(".button").length;
