@@ -1,7 +1,7 @@
 
 function removeTransition(e){
-    if (e.propertyName !== "transform") return;
-    e.target.classList.remove("playing");
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
 }
 
 function playsound(e) {
@@ -14,11 +14,11 @@ function playsound(e) {
     audio.play();
 }
 
-const keys = Array.from(document.querySelectorAll(".key"));
+const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach((key) =>
-    key.addEventListener("transitionend", removeTransition)
+    key.addEventListener('transitionend', removeTransition)
 );
-window.addEventListener('keydown', playsound(Event));
+window.addEventListener('keypress', playsound(Event));
 
 // var numberOfButtons = document.querySelectorAll(".button").length;
   
