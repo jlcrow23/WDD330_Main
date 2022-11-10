@@ -5,8 +5,8 @@ function removeTransition(e){
 }
 
 function playsound(e) {
-    const audio = document.querySelector('audio[data-key="${e.keycode}"]');
-    const key = document.querySelector('div[data-key="${e.keycode}"]');
+    const audio = document.querySelector(`audio[data-key="${e.keycode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keycode}"]`);
     if (!audio) return;
 
     key.classList.add("playing");
@@ -18,7 +18,7 @@ const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach((key) =>
     key.addEventListener('transitionend', removeTransition)
 );
-window.addEventListener('keypress', playsound(Event));
+window.addEventListener('keydown', playsound);
 
 // var numberOfButtons = document.querySelectorAll(".button").length;
   
