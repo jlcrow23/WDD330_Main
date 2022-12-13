@@ -7,3 +7,8 @@ body {
     background-color: antiquewhite;
     padding: 1em;
   }
+
+  h3 {
+    background-color: pink;
+    padding: 1em;
+  }
