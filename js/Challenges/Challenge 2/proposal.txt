@@ -1,0 +1,17 @@
+My ideas for my project are:
+1. Jensen's Grove Park
+2. Crafty Website
+
+For #1:
+This would be geared toward families or individuals who like to boat,
+swim, fish, or walk locally.
+I would use API to put in a map of the area.
+Local Storage might be pictures of the activities to do.
+I would add in animations to make it more appealing.
+
+For #2:
+This would be geared toward people who like to be crafty and learn new
+skills.
+I would use API to allow examples of ideas to be put on the site.
+I would have videos and interactive steps to help people learn.
+I would have lots of color and would show how to do a lot of activities.
