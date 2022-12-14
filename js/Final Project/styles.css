@@ -1,14 +1,14 @@
 body {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background: rgb(250, 242, 231)
+    background: rgb(250, 242, 231);
   }
   
 h1 {
     background-color: rgba(115, 115, 136, 0.644);
     padding: .5em;
     color: rgb(134, 53, 53);
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }
 h2 {
     background-color:burlywood;
@@ -23,5 +23,20 @@ h3 {
 li {
     background-color: rgba(0, 162, 255, 0.514);
     padding: .1em;
-    color: rgb(87, 52, 87)
+    color: rgb(87, 52, 87);
+}
+p {
+    background-color:rgb(231, 202, 160);
+    padding: .2em;
+    width: 390px;
+}
+#disc_golf {
+    border: 2px solid black;
+    width: 500px;
+    height: 500px;
+}
+#fishing_img {
+    border: 2px solid black;
+    width: 500px;
+    height: 500px;
 }
